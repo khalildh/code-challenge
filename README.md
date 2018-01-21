@@ -1,7 +1,7 @@
 # BuildNG
 ## Pre-interview Technical Challenge
 
-Thank you for applying for our pilot software engineer development program! This challenge will be the focus of the technical conversation we'll have during your interview.
+Thank you for applying for our pilot software engineer development program! This challenge will be the focus of the technical conversation we'll have during your interview. It consists of two parts:
 
 * [A development challenge](#the-challenge)
 * [A few technical questions](#technical-questions)
