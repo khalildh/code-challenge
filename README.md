@@ -6,9 +6,7 @@ Thank you for applying for our pilot software engineer development program! This
 * [A development challenge](#the-challenge)
 * [A few technical questions](#technical-questions)
 
-In order to avoid bounced emails we would like you to submit your results by uploading the relevant ZIP file to a shared Google Drive folder. In order to obtain the URL for this folder please supply your Gmail or Google-based email address to either your agent or the Just Eat member of staff who assigned you the test.
-
-Please clone this repo on your machine and make a branch with the structure **{yourname}-pilot-interview** containing:
+Please clone this repo on your machine and make a branch named **{yourname}-pilot-interview** containing:
 
 1. Your application code
 2. An APP_README.md file detailing the key architectural and UX decisions you made (including language(s), frameworks, and paradigms you utilized/implemented and why) as well as instructions for running and using the app. 
