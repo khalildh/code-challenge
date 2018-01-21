@@ -19,7 +19,7 @@ Zomato has a [public API](https://developers.zomato.com/api#headline1) that you 
 
 As an example, [https://developers.zomato.com/api/v2.1/cuisines?city_id=280](https://developers.zomato.com/api/v2.1/cuisines?city_id=280) returns a list of all cuisines that can be found in New York City restaurants.
 
-The API requires you authenticate using a user_key which you can [generate for free](https://developers.zomato.com/api#headline2).
+The API requires you authenticate using a `user_key` which you can instantly [generate for free](https://developers.zomato.com/api#headline2).
 
 The task is to create an application that presents the data from at least two endpoints. For example, an app that lists all sushi restaurants in New York City (using the `/search` [endpoint](https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&cuisines=177&sort=cost&order=asc)), and upon clicking on a restaurant takes you to a detail page that includes its info and reviews (using the `/reviews` endpoint). 
 
