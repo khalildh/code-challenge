@@ -1,5 +1,6 @@
 # BuildNG
-## Pre-interview Technical Challenge
+## Pre-interview Technical Challenge 
+### **Repository push access will close after 11:59pm Jan 28**
 
 Thank you for applying for our pilot software engineer development program! This challenge will be the focus of the technical conversation we'll have during your interview. It consists of two parts:
 
