@@ -7,6 +7,13 @@ import { createLogger } from 'redux-logger';
 import {Provider} from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import rootReducer from './reducers';
+import { Route, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+
+import createHistory from 'history/createBrowserHistory';
+
+const history = createHistory();
+
 
 // import registerServiceWorker from './registerServiceWorker';
 
@@ -48,7 +55,11 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+  <ConnectedRouter history={history}>
+    <Switch>
+      <Route path='/' component={App} />
+    </Switch>
+  </ConnectedRouter>
   </Provider>
   ,
   document.getElementById('root'));

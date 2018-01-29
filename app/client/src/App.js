@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import APIManager from './APIManager';
 import {connect} from 'react-redux';
 import RestaurantList from './RestaurantList';
+import Restaurant from './Restaurant';
 
 import './App.css';
 
@@ -12,17 +13,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getCurrentLocation: (payload) =>
-    dispatch({type: "ADD_CURRENT_LOCATION", payload}),
-  listRestaurants: (payload) =>
-    dispatch({type: "ADD_RESTAURANTS", payload})
+    dispatch({type: "ADD_CURRENT_LOCATION", payload})
 })
 
 
 class App extends Component {
-
-  componentWillMount(props) {
-    console.log(props);
-  }
 
   componentWillMount() {
 
@@ -32,33 +27,25 @@ class App extends Component {
       let url = `cities?lat=${latitude}&lon=${longitude}`;
       this.props.getCurrentLocation(APIManager.Zomato.search(url));
     })
-
-    // this.props.currentLocation ? console.log('yeah') : console.log('no');
-
-
-
-
-
   }
 
 
   render() {
     let {
-      currentLocation,
-      loading,
-      restaurants
+      loading
     } = this.props.common;
-
-    currentLocation && !restaurants ?
-      this.props.listRestaurants(APIManager.Zomato.search(`search?entity_id=${currentLocation.id}`)) :
-      null
     return (
       <div>
       {
         loading ? (
           <p> Loading... </p>
         ) :
-        <RestaurantList restaurants={this.props.common.restaurants}/>
+        <div>
+          <Switch>
+            <Route exact path='/' component={RestaurantList} />
+            <Route path='/restaurant/:id' component={Restaurant} />
+          </Switch>
+        </div>
       }
       </div>
     );

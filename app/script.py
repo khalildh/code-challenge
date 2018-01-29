@@ -1,6 +1,9 @@
 import os, requests, json
 from flask import Flask, send_from_directory, request, abort, jsonify
 
+if(not os.path.exists("client/node_modules")):
+    os.system("cd client && npm install")
+
 if(not os.path.exists("client/build/")):
     os.system("cd client && npm run build")
 
@@ -24,7 +27,6 @@ def reviews():
 @app.route('/', defaults={'path': ''}, methods=['GET'])
 @app.route('/<path:path>')
 def serve(path):
-    # return ("client/build/" + path)
     if(path == ""):
         return send_from_directory('client/build/', 'index.html')
     else:
@@ -37,28 +39,11 @@ def serve(path):
 def search():
     if request.json:
         zamatoURL = request.json.get('searchURL', None)
-        print(zamatoURL)
     if not request.json or zamatoURL is None:
         abort(400)
-    # r = requests.get(request.json['zamatoURL'], headers=headers)
     r = makeRequest(zamatoURL)
-    print(r)
 
-    # print(request.json['zamatoURL'])
-    # # return json.dumps(request.json)
-    # print(r.text)
-    # return json.dumps(r.text)
     return jsonify(r.text)
-
-# @app.route('/api/cities/', methods = ['POST'])
-# def cities():
-#     if request.json:
-#         cityUrl = request.json.get('cityUrl', None)
-#     if not request.json or cityUrl is None:
-#         abort(400)
-#     r = makeRequest(cityUrl)
-#     print(r)
-#     return jsonify(r.text)
 
 @app.route('/api/categories/', methods=['GET'])
 def categories():
